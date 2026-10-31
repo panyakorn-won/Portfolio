@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ชื่อ นามสกุล | Electrical Engineering Portfolio</title>
-<meta name="description" content="Portfolio ของนักศึกษาวิศวกรรมไฟฟ้า มหาวิทยาลัยมหิดล">
+<title>Panyakorn Wongwattanakij | Electrical Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Panyakorn Wongwattanakij, Electrical Engineering student at Mahidol University, applying for the Automation Engineer Intern position at SCG Packaging">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600&display=swap" rel="stylesheet">
@@ -202,6 +202,30 @@ header.nav nav a.active{color:#fff;border-color:var(--gold)}
   .stage{order:-1}
   .hero{padding-top:8px;gap:20px}
 }
+
+/* ===== หัวข้อ section ให้เด่นกว่าเนื้อหา ===== */
+section>.wrap>h2{font-size:clamp(28px,3.2vw,34px);font-weight:600;line-height:1.25;letter-spacing:-.01em;padding-bottom:16px}
+section>.wrap>h2::after{content:"";display:block;width:44px;height:3px;margin-top:14px;background:var(--gold);border-radius:2px;transition:width .6s var(--ease)}
+section:hover>.wrap>h2::after{width:72px}
+section>.wrap>h2 .num{display:flex;align-items:center;gap:12px;font-size:15px;letter-spacing:.22em;margin-bottom:10px}
+section>.wrap>h2 .num::after{content:"";width:28px;height:1px;background:var(--gold);opacity:.7}
+@media(max-width:820px){
+  section>.wrap>h2{font-size:30px;padding-bottom:0}
+}
+
+/* ===== พื้นหลังแต่ละส่วนไล่จากอ่อนไปเข้ม ===== */
+:root{--muted:#4D4F57;--gold:#85673A}
+section{--line:rgba(31,42,68,.15)}
+#about{background:#F5F2E8}
+#education{background:#EFEBDE}
+#experience{background:#E8E4D4}
+#projects{background:#E2DCCA}
+#skills{background:#DCD5C0}
+#why{background:#D5CEB6}
+#contact{background:#CFC6AC}
+footer{background:#C8BFA3;--line:rgba(31,42,68,.15)}
+.proj .pn{color:rgba(133,103,58,.22)}
+.tags span{background:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
@@ -210,12 +234,13 @@ header.nav nav a.active{color:#fff;border-color:var(--gold)}
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#top" id="logo"></a>
-    <nav aria-label="เมนูหลัก">
-      <a href="#about">เกี่ยวกับฉัน</a>
-      <a href="#projects">ผลงาน</a>
-      <a href="#skills">ทักษะ</a>
-      <a href="#experience">ประสบการณ์</a>
-      <a href="#contact">ติดต่อ</a>
+    <nav aria-label="Main menu">
+      <a href="#about">Summary</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -227,8 +252,8 @@ header.nav nav a.active{color:#fff;border-color:var(--gold)}
         <h1 id="heroTitle"></h1>
         <p class="lead" id="heroLead"></p>
         <div class="cta">
-          <a class="btn primary" href="#projects"><span>ดูผลงาน</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn ghost" id="resumeBtn" href="#contact"><span>ดาวน์โหลดเรซูเม่</span><svg class="ic dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a>
+          <a class="btn primary" href="#projects"><span>View Projects</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" id="resumeBtn" href="#contact"><span>Download Resume</span><svg class="ic dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a>
         </div>
       </div>
 
@@ -246,7 +271,7 @@ header.nav nav a.active{color:#fff;border-color:var(--gold)}
           <path id="strapText" fill="none"/>
           <text class="strap-text" dy="3"><textPath href="#strapText" startOffset="6">MAHIDOL ENGINEERING · ELECTRICAL · MAHIDOL ENGINEERING · ELECTRICAL · MAHIDOL ENGINEERING · ELECTRICAL · MAHIDOL ENGINEERING · ELECTRICAL · </textPath></text>
         </svg>
-        <div class="card" id="card" tabindex="0" role="img" aria-label="บัตรประจำตัว ลากหรือแตะเพื่อให้แกว่ง">
+        <div class="card" id="card" tabindex="0" role="img" aria-label="ID card. Drag or tap to make it swing">
           <span class="slot"></span>
           <img id="cardPhoto" alt="" draggable="false">
           <div class="info">
@@ -265,7 +290,7 @@ header.nav nav a.active{color:#fff;border-color:var(--gold)}
 
   <section id="about">
     <div class="wrap">
-      <h2>เกี่ยวกับฉัน</h2>
+      <h2>Summary</h2>
       <div class="about">
         <div id="aboutText"></div>
         <dl class="facts" id="facts"></dl>
@@ -273,38 +298,45 @@ header.nav nav a.active{color:#fff;border-color:var(--gold)}
     </div>
   </section>
 
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <ul class="timeline" id="eduList"></ul>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Relevant Experience</h2>
+      <ul class="timeline" id="timeline"></ul>
+    </div>
+  </section>
+
   <section id="projects">
     <div class="wrap">
-      <h2>ผลงานและโปรเจกต์</h2>
-      <p class="intro">แต่ละโปรเจกต์บอกโจทย์ สิ่งที่ฉันลงมือทำ และผลลัพธ์ที่วัดได้</p>
+      <h2>Project Experience</h2>
+      <p class="intro">Each project covers the problem, what I did, and the measurable result.</p>
       <div class="projects" id="projectList"></div>
     </div>
   </section>
 
   <section id="skills">
     <div class="wrap">
-      <h2>ทักษะ</h2>
+      <h2>Skills</h2>
       <div class="skills" id="skillList"></div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="wrap">
-      <h2>การศึกษาและกิจกรรม</h2>
-      <ul class="timeline" id="timeline"></ul>
     </div>
   </section>
 
   <section id="why">
     <div class="wrap">
-      <h2>ทำไมถึงสนใจ SCG</h2>
+      <h2>Why SCGP</h2>
       <div id="whyText"></div>
     </div>
   </section>
 
   <section id="contact">
     <div class="wrap">
-      <h2>ติดต่อ</h2>
+      <h2>Contact</h2>
       <p class="intro" id="contactIntro"></p>
       <div class="contact" id="contactList"></div>
     </div>
@@ -321,25 +353,16 @@ header.nav nav a.active{color:#fff;border-color:var(--gold)}
    ข้อความที่ขึ้นต้นด้วย [ ] คือตัวอย่างที่ต้องแทนด้วยข้อมูลจริง
    ============================================================ */
 const DATA = {
-  name: "[ชื่อ นามสกุล]",
-  heroTitle: "นักศึกษาวิศวกรรมไฟฟ้า ที่ชอบทำให้ระบบไฟฟ้าและอุปกรณ์ทำงานได้จริง",
-  heroLead: "ปี 2 วิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยมหิดล สนใจงานระบบไฟฟ้ากำลัง ระบบควบคุม และระบบอัตโนมัติในอุตสาหกรรม กำลังมองหาโอกาสฝึกงานหรือทำงานร่วมกับ SCG",
+  name: "Panyakorn Wongwattanakij",
+  heroTitle: "An electrical engineering student who loves making power and automation systems work in the real world",
+  heroLead: "Year 2 Electrical Engineering at Mahidol University, interested in automation, power systems, and programming. Applying for the Automation Engineer Intern (EIP) position at SCG Packaging (SCGP).",
   photo: "",   // เว้นว่าง = ใช้รูปที่ฝังอยู่ในไฟล์นี้แล้ว (ท้ายสคริปต์) หรือใส่ path ของรูปใหม่ เช่น "photo.jpg"
   cardLine1: "Electrical Engineering",
-  cardLine2: "Mahidol University · ชั้นปีที่ 2",
-  keywords: ["ไฟฟ้ากำลัง", "ระบบควบคุม", "Automation", "Embedded Systems", "MATLAB / Simulink", "IoT", "Power Electronics", "การจัดการพลังงาน"],   // คำที่วิ่งเป็นแถบใต้หน้าแรก
+  cardLine2: "Mahidol University · Year 2",
+  keywords: ["Automation", "PLC", "PWM Motor Control", "MQTT", "Formula EV", "C / Python", "Arduino", "Power Systems"],   // คำที่วิ่งเป็นแถบใต้หน้าแรก
   resumeUrl: "resume.pdf",   // วางไฟล์ resume.pdf ไว้โฟลเดอร์เดียวกับ index.html
-  about: [
-    "[เล่าสั้นๆ 2-3 ประโยค ว่าอะไรทำให้คุณมาเรียนวิศวะไฟฟ้า และตอนนี้สนใจเรื่องอะไรเป็นพิเศษ]",
-    "[ยกตัวอย่างสิ่งที่คุณเคยลงมือทำเอง เช่น ซ่อมเครื่องใช้ไฟฟ้า ต่อวงจรบน breadboard หรือเขียนโค้ดควบคุมบอร์ด]"
-  ],
-  facts: [
-    ["การศึกษา", "วิศวกรรมไฟฟ้า มหาวิทยาลัยมหิดล (ปี 2)"],
-    ["GPAX", "[x.xx]"],
-    ["สนใจ", "ไฟฟ้ากำลัง, ระบบควบคุม, Automation"],
-    ["ช่วงที่พร้อมฝึกงาน", "[เช่น มี.ค.-พ.ค. 2570]"],
-    ["ที่อยู่", "[เขต/จังหวัด]"]
-  ],
+  about: ["Hi! You can call me First. I’m an Electrical Engineering sophomore at Mahidol University who genuinely loves working where electricity, structural design, and coding meet. I get a real kick out of learning how things work, cracking tough technical problems, and finding ways to make systems run better.", "I’m really excited about the chance to join SCGP as an Automation Engineer Intern so I can finally step out of the classroom, see how a massive factory operates in the real world, and build a solid foundation for my future engineering career."],
+  facts: [["Education", "B.Eng. Electrical Engineering, Mahidol University (Year 2)"], ["GPA", "3.20 / 4.00"], ["Applying for", "Automation Engineer Intern (EIP) — SCG Packaging"], ["Interests", "Automation, power systems, programming"], ["Languages", "Thai (Native), English (Intermediate)"]],
   projects: [
     {
       title: "[ชื่อโปรเจกต์ 1 เช่น ระบบวัดพลังงานไฟฟ้าด้วย ESP32]",
@@ -379,26 +402,27 @@ const DATA = {
     }
   ],
   skills: [
-    { group: "วิศวกรรม", items: ["วิเคราะห์วงจรไฟฟ้า", "อิเล็กทรอนิกส์เบื้องต้น", "ระบบควบคุมเบื้องต้น"] },
-    { group: "ซอฟต์แวร์และเครื่องมือ", items: ["MATLAB / Simulink", "Python", "C/C++ (Arduino, ESP32)", "KiCad หรือ Altium", "Git / GitHub"] },
-    { group: "ห้องปฏิบัติการ", items: ["Oscilloscope", "Multimeter", "แหล่งจ่ายไฟ DC", "บัดกรีและต่อวงจร"] },
-    { group: "ทักษะอื่น", items: ["ทำงานเป็นทีม", "เขียนรายงานเทคนิค", "ภาษาอังกฤษ [ระดับ / คะแนนสอบ]"] }
+    {"group": "Language", "items": ["Thai (Native)", "English (Intermediate)", "Japanese (Basic)", "Chinese (Basic)"]},
+    {"group": "Software", "items": ["AutoCAD, LTspice, SimulIDE, Tinkercad", "Thonny, Google Colab, Code::Blocks, Arduino, MQTT", "Google Sheets, MS Office, Canva", "AI-Assisted Engineering (Gemini, Claude), Advanced Prompt Engineering, AI-Powered Code Debugging & Automation"]},
+    {"group": "Hardware", "items": ["Multimeters, Oscilloscopes", "Soldering, Power supply, Function generator", "3D printer, Laser cut, Arduino"]},
+    {"group": "Soft Skills", "items": ["Project Management", "Creativity, Critical Thinking & Analysis", "Communication, Collaboration and Teamwork", "Problem Solving, Pitching, Adaptability"]}
+  ],
+  education: [
+    { when: "2025 – Present", title: "Bachelor of Engineering Program in Electrical Engineering · Mahidol University", detail: "Ratchaburi, Bangkok, Thailand · GPA 3.20/4.00. Related coursework: Drawing (AutoCAD), Computer Programming (C, Python), Solid State, Mechanic, Electrical Circuit, Software Applications for Electrical Engineering (MQTT)." }
   ],
   timeline: [
-    { when: "2568 - ปัจจุบัน", title: "วิศวกรรมไฟฟ้า มหาวิทยาลัยมหิดล", detail: "[วิชาที่เกี่ยวข้อง เช่น Circuit Analysis, Electronics, Digital Logic]" },
-    { when: "[ปี]", title: "[ชื่อกิจกรรม / ค่าย / ชมรม]", detail: "[บทบาทและสิ่งที่ได้เรียนรู้]" },
-    { when: "[ปี]", title: "[รางวัล / การแข่งขัน / งานอาสา]", detail: "[รายละเอียดสั้นๆ]" }
+    { when: "2026 – Present", title: "Robotics and Automation Club EGEE", detail: "Robotics and automation club of the Department of Electrical Engineering." },
+    { when: "2026 – Present", title: "Electrical Engineering Basketball Club", detail: "Basketball club of the Department of Electrical Engineering." },
+    { when: "2026 – Present", title: "Junior Powertrain Engineer · Formula EV Mahidol", detail: "Studied the electrical power architecture and high-current discharge systems to understand how power is drawn from the battery pack to drive the electric motor. Analyzed voltage regulation, power transmission efficiency, and command signals under senior engineering mentorship." },
+    { when: "2026", title: "Co-Founder & Lead Developer · Quickathon Case Competition", detail: "Developed a 3D product visualization web application deployed on GitHub to showcase a value-added solution for low-grade agricultural crops. Served as Project Manager, structuring execution timelines and financial models to project a market-entry strategy with a 19-day payback period. Co-delivered the final bilingual business pitch to a panel of corporate judges." },
+    { when: "2026", title: "Academic Coordinator & Mentor · EYC (Engineering Youth Camp)", detail: "Served as a technical mentor (Academic Team), guiding high school students in designing electrical circuits on PLC and mechanical structures. Instructed participants on implementing PWM (Pulse Width Modulation) speed controllers powered by 9V batteries to drive motorized boat prototypes. Led a student team to secure 3rd place in the camp’s confectionery cargo transport boat design challenge." }
   ],
-  why: [
-    "[เขียน 3-4 ประโยค ว่าทำไมสนใจ SCG โดยเชื่อมกับสิ่งที่ SCG ทำจริง เช่น งานอัตโนมัติในโรงงาน การจัดการพลังงาน หรือ ESG]",
-    "[แล้วบอกว่าคุณจะเอาสิ่งที่เรียนมาช่วยงานตรงไหนได้บ้าง]"
-  ],
-  contactIntro: "สะดวกคุยเรื่องฝึกงานหรือตำแหน่งงาน ทักได้ตามช่องทางนี้",
+  why: ["I want to step out of the classroom, see how a massive factory operates in the real world, and learn how automation helps production run better. The Automation Engineer Intern role at SCGP is the starting point I want to build my engineering career on.", "What I’ve prepared: I taught PLC circuit design and PWM speed controllers at EYC, studied power systems and high-current discharge circuits at Formula EV Mahidol, and learned data communication with MQTT in a department course."],
+  contactIntro: "Interested in having me join as an intern? Reach me through any of these channels.",
   contacts: [
-    { label: "อีเมล", href: "mailto:you@student.mahidol.ac.th" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/yourname" },
-    { label: "GitHub", href: "https://github.com/yourname" },
-    { label: "โทร [0xx-xxx-xxxx]", href: "tel:+66000000000" }
+    { label: "panyakorn.won@student.mahidol.edu", href: "mailto:panyakorn.won@student.mahidol.edu" },
+    { label: "Phone: +66 80-785-6449", href: "tel:+66807856449" }
+    // ถ้ามี LinkedIn หรือ GitHub ให้เพิ่มบรรทัดแบบนี้: { label: "GitHub", href: "https://github.com/ชื่อผู้ใช้" }
   ]
 };
 
@@ -420,10 +444,10 @@ DATA.projects.forEach(p => {
   const a = el("article", "proj");
   a.append(el("h3", "", p.title), el("p", "meta", p.meta));
   const dl = el("dl");
-  [["โจทย์", p.problem], ["ส่วนที่ฉันทำ", p.role], ["ผลลัพธ์", p.result]].forEach(([k, v]) => dl.append(el("dt", "", k), el("dd", "", v)));
+  [["Problem", p.problem], ["My role", p.role], ["Result", p.result]].forEach(([k, v]) => dl.append(el("dt", "", k), el("dd", "", v)));
   a.appendChild(dl);
   const tags = el("div", "tags"); p.tags.forEach(t => tags.appendChild(el("span", "", t))); a.appendChild(tags);
-  if (p.link) { const l = el("a", "link", "ดูโค้ดและรายละเอียดบน GitHub"); l.href = p.link; l.target = "_blank"; l.rel = "noopener"; a.appendChild(l); }
+  if (p.link) { const l = el("a", "link", "View code and details on GitHub"); l.href = p.link; l.target = "_blank"; l.rel = "noopener"; a.appendChild(l); }
   $("projectList").appendChild(a);
 });
 
@@ -433,10 +457,10 @@ DATA.skills.forEach(s => {
   $("skillList").appendChild(d);
 });
 
-DATA.timeline.forEach(t => {
+[["eduList", DATA.education], ["timeline", DATA.timeline]].forEach(([id, list]) => list.forEach(t => {
   const li = el("li"); li.append(el("span", "when", t.when), el("strong", "", t.title), el("span", "", t.detail));
-  $("timeline").appendChild(li);
-});
+  $(id).appendChild(li);
+}));
 
 DATA.why.forEach(t => { const p = el("p", "", t); p.style.cssText = "margin-bottom:14px;max-width:44em"; $("whyText").appendChild(p); });
 $("contactIntro").textContent = DATA.contactIntro;
