@@ -225,6 +225,7 @@ section{--line:rgba(31,42,68,.15)}
 #contact{background:#CFC6AC}
 footer{background:#C8BFA3;--line:rgba(31,42,68,.15)}
 .proj .pn{color:rgba(133,103,58,.22)}
+.proj a.link{margin-right:28px}
 .tags span{background:rgba(255,255,255,.7)}
 </style>
 </head>
@@ -365,40 +366,33 @@ const DATA = {
   facts: [["Education", "B.Eng. Electrical Engineering, Mahidol University (Year 2)"], ["GPA", "3.20 / 4.00"], ["Applying for", "Automation Engineer Intern (EIP) — SCG Packaging"], ["Interests", "Automation, power systems, programming"], ["Languages", "Thai (Native), English (Intermediate)"]],
   projects: [
     {
-      title: "[ชื่อโปรเจกต์ 1 เช่น ระบบวัดพลังงานไฟฟ้าด้วย ESP32]",
-      meta: "[ปี / วิชา หรือโปรเจกต์ส่วนตัว / ทำคนเดียวหรือทีม กี่คน]",
-      problem: "[ปัญหาที่อยากแก้ ในหนึ่งประโยค]",
-      role: "[ส่วนที่คุณทำเอง เช่น ออกแบบวงจรวัด เขียนเฟิร์มแวร์ ทดสอบ]",
-      result: "[ผลลัพธ์ที่วัดได้ เช่น วัดกระแสได้ ±2% เทียบกับมัลติมิเตอร์]",
-      tags: ["ESP32", "C/C++", "Sensor", "KiCad"],
-      link: "https://github.com/yourname/project-1"
+      title: "Automation Powertrain \u00b7 Formula EV Mahidol",
+      meta: "2026 \u2013 Present \u00b7 Team project",
+      problem: "The battery\u2019s energy drained faster than it could be recharged, so the car could not complete the full race distance.",
+      role: "Developed the electrical circuits and the operation of the ECU box.",
+      result: "Built a simulation model of the energy flow to support further study, research, and development.",
+      tags: ["ECU", "Electrical Circuits", "Energy Simulation"],
+      links: [{ label: "View project page", href: "https://panyakorn-won.github.io/Powertrain-Formula-EV/" }]
     },
     {
-      title: "[ชื่อโปรเจกต์ 2 เช่น จำลองวงจรอินเวอร์เตอร์ด้วย MATLAB/Simulink]",
-      meta: "[ปี / วิชา / ทีม]",
-      problem: "[ปัญหาหรือโจทย์]",
-      role: "[ส่วนที่คุณทำ]",
-      result: "[ผลลัพธ์]",
-      tags: ["MATLAB", "Simulink", "Power Electronics"],
-      link: "https://github.com/yourname/project-2"
+      title: "PWM Motorized Boat \u00b7 EYC (Engineering Youth Camp)",
+      meta: "2026 \u00b7 Mentor, Academic Team",
+      problem: "How to build a boat that can carry candy as cargo without it falling into the water.",
+      role: "Mentor for the Circuit\u2013PWM part and the Design part.",
+      result: "The boat carried 547 pieces of candy and placed 3rd.",
+      tags: ["PWM", "Circuit Design", "Mechanical Design"]
     },
     {
-      title: "[ชื่อโปรเจกต์ 3]",
-      meta: "[ปี / วิชา / ทีม]",
-      problem: "[ปัญหาหรือโจทย์]",
-      role: "[ส่วนที่คุณทำ]",
-      result: "[ผลลัพธ์]",
-      tags: ["Arduino", "Python"],
-      link: "https://github.com/yourname/project-3"
-    },
-    {
-      title: "[ชื่อโปรเจกต์ 4]",
-      meta: "[ปี / วิชา / ทีม]",
-      problem: "[ปัญหาหรือโจทย์]",
-      role: "[ส่วนที่คุณทำ]",
-      result: "[ผลลัพธ์]",
-      tags: ["[เครื่องมือ 1]", "[เครื่องมือ 2]"],
-      link: "https://github.com/yourname/project-4"   // ใส่ลิงก์ repo ของ prototype แล้วแทนที่ตรงนี้
+      title: "Quickathon Case Competition \u00b7 3D Product Visualization",
+      meta: "2026 \u00b7 Co-Founder, Lead Developer & Project Manager",
+      problem: "A large amount of agricultural crops were downgraded and could not be sold.",
+      role: "Designed the product as a 3D model and planned the sales strategy.",
+      result: "The product pays back its cost within 19 days, with a 47% profit per pack.",
+      tags: ["3D Visualization", "Web App", "Financial Model"],
+      links: [
+        { label: "View the 3D model", href: "https://panyakorn-won.github.io/Quickathon11/" },
+        { label: "Download the presentation", href: "Quickathon_Presentation.pdf" }   // วางไฟล์ Present ไว้โฟลเดอร์เดียวกับ index.html แล้วตั้งชื่อให้ตรงกัน
+      ]
     }
   ],
   skills: [
@@ -447,7 +441,7 @@ DATA.projects.forEach(p => {
   [["Problem", p.problem], ["My role", p.role], ["Result", p.result]].forEach(([k, v]) => dl.append(el("dt", "", k), el("dd", "", v)));
   a.appendChild(dl);
   const tags = el("div", "tags"); p.tags.forEach(t => tags.appendChild(el("span", "", t))); a.appendChild(tags);
-  if (p.link) { const l = el("a", "link", "View code and details on GitHub"); l.href = p.link; l.target = "_blank"; l.rel = "noopener"; a.appendChild(l); }
+  (p.links || []).forEach(x => { const l = el("a", "link", x.label); l.href = x.href; l.target = "_blank"; l.rel = "noopener"; a.appendChild(l); });
   $("projectList").appendChild(a);
 });
 
