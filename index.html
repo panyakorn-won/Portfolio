@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Panyakorn Wongwattanakij | Electrical Engineering Portfolio</title>
 <meta name="description" content="Portfolio of Panyakorn Wongwattanakij, Electrical Engineering student at Mahidol University, applying for the Automation Engineer Intern position at SCG Packaging">
+<script>document.documentElement.classList.add("loading")</script>
+<meta name="theme-color" content="#1F2A44">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Panyakorn Wongwattanakij | Electrical Engineering Portfolio">
+<meta property="og:description" content="Electrical Engineering student at Mahidol University applying for the Automation Engineer Intern (EIP) position at SCG Packaging.">
+<meta property="og:image" content="https://panyakorn-won.github.io/Portfolio/og-image.png">
+<meta property="og:url" content="https://panyakorn-won.github.io/Portfolio/">
+<link rel="canonical" href="https://panyakorn-won.github.io/Portfolio/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600&display=swap" rel="stylesheet">
@@ -226,6 +235,22 @@ section{--line:rgba(31,42,68,.15)}
 footer{background:#C8BFA3;--line:rgba(31,42,68,.15)}
 .proj .pn{color:rgba(133,103,58,.22)}
 .proj a.link{margin-right:28px}
+#loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:var(--bg);transition:opacity .5s ease,visibility .5s;animation:loaderGone .01s 7s forwards}
+#loader.done{opacity:0;visibility:hidden}
+#loader svg{width:112px;height:112px;overflow:visible}
+#loader .ln{fill:none;stroke:#E01B24;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100}
+#loader .l1{stroke-width:7;animation:draw 1.2s cubic-bezier(.65,0,.35,1) .15s forwards}
+#loader .l2{stroke-width:5;animation:draw .9s cubic-bezier(.65,0,.35,1) .75s forwards}
+#loader .lf{fill:#E01B24;opacity:0;animation:pop .5s ease 1.55s forwards}
+#loader .lm{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:.04em;fill:#fff;opacity:0;animation:pop .5s ease 1.95s forwards}
+#loader .lname{font-family:var(--serif);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);opacity:0;animation:pop .6s ease 2.1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@keyframes loaderGone{to{opacity:0;visibility:hidden}}
+.loading .rise{animation-play-state:paused}
+.loading body{overflow:hidden}
+@media(prefers-reduced-motion:reduce){#loader .ln{stroke-dashoffset:0;animation:none}#loader .lf,#loader .lm,#loader .lname{opacity:1;animation:none}}
+
 .proj .diagram{margin:20px 0 4px;background:#FBFAF7;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
 .proj .diagram img{display:block;width:100%;height:auto;border-radius:6px}
 .proj .diagram figcaption{font-size:13.5px;color:var(--muted);padding:10px 4px 2px}
@@ -233,6 +258,7 @@ footer{background:#C8BFA3;--line:rgba(31,42,68,.15)}
 </style>
 </head>
 <body>
+<div id="loader" role="status" aria-label="Loading"><svg viewBox="0 0 120 120" aria-hidden="true"><path class="ln l1" pathLength="100" d="M79.90 11.96 L108.04 40.10 L108.04 79.90 L79.90 108.04 L40.10 108.04 L11.96 79.90 L11.96 40.10 L40.10 11.96 Z"/><path class="lf" d="M72.63 29.51 L90.49 47.37 L90.49 72.63 L72.63 90.49 L47.37 90.49 L29.51 72.63 L29.51 47.37 L47.37 29.51 Z"/><path class="ln l2" pathLength="100" d="M72.63 29.51 L90.49 47.37 L90.49 72.63 L72.63 90.49 L47.37 90.49 L29.51 72.63 L29.51 47.37 L47.37 29.51 Z"/><text class="lm" x="60" y="68" text-anchor="middle">PW</text></svg><div class="lname">Panyakorn W.</div></div>
 <div class="progress" id="progress"></div>
 
 <header class="nav">
@@ -257,7 +283,6 @@ footer{background:#C8BFA3;--line:rgba(31,42,68,.15)}
         <p class="lead" id="heroLead"></p>
         <div class="cta">
           <a class="btn primary" href="#projects"><span>View Projects</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn ghost" id="resumeBtn" href="#contact"><span>Download Resume</span><svg class="ic dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a>
         </div>
       </div>
 
@@ -365,7 +390,6 @@ const DATA = {
   cardLine1: "Electrical Engineering",
   cardLine2: "Mahidol University · Year 2",
   keywords: ["Automation", "PLC", "PWM Motor Control", "MQTT", "Formula EV", "C / Python", "Arduino", "Power Systems"],   // คำที่วิ่งเป็นแถบใต้หน้าแรก
-  resumeUrl: "resume.pdf",   // วางไฟล์ resume.pdf ไว้โฟลเดอร์เดียวกับ index.html
   about: ["Hi! You can call me First. I’m an Electrical Engineering sophomore at Mahidol University who genuinely loves working where electricity, structural design, and coding meet. I get a real kick out of learning how things work, cracking tough technical problems, and finding ways to make systems run better.", "I’m really excited about the chance to join SCGP as an Automation Engineer Intern so I can finally step out of the classroom, see how a massive factory operates in the real world, and build a solid foundation for my future engineering career."],
   facts: [["Education", "B.Eng. Electrical Engineering, Mahidol University (Year 2)"], ["GPA", "3.20 / 4.00"], ["Applying for", "Automation Engineer Intern (EIP) — SCG Packaging"], ["Interests", "Automation, power systems, programming"], ["Languages", "Thai (Native), English (Intermediate)"]],
   projects: [
@@ -420,7 +444,8 @@ const DATA = {
   contactIntro: "Interested in having me join as an intern? Reach me through any of these channels.",
   contacts: [
     { label: "panyakorn.won@student.mahidol.edu", href: "mailto:panyakorn.won@student.mahidol.edu" },
-    { label: "Phone: +66 80-785-6449", href: "tel:+66807856449" }
+    { label: "Phone: +66 80-785-6449", href: "tel:+66807856449" },
+    { label: "GitHub", href: "https://github.com/panyakorn-won" }
     // ถ้ามี LinkedIn หรือ GitHub ให้เพิ่มบรรทัดแบบนี้: { label: "GitHub", href: "https://github.com/ชื่อผู้ใช้" }
   ]
 };
@@ -433,8 +458,6 @@ document.title = DATA.name + " | Electrical Engineering Portfolio";
 $("logo").textContent = DATA.name;
 $("heroTitle").textContent = DATA.heroTitle;
 $("heroLead").textContent = DATA.heroLead;
-$("resumeBtn").href = DATA.resumeUrl;
-$("resumeBtn").setAttribute("download", "");
 
 DATA.about.forEach(t => { const p = el("p", "", t); p.style.marginBottom = "14px"; $("aboutText").appendChild(p); });
 DATA.facts.forEach(([k, v]) => { $("facts").append(el("dt", "", k), el("dd", "", v)); });
@@ -675,6 +698,20 @@ const EMBEDDED_PHOTO = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDA
     io.observe(t);
   });
   document.querySelectorAll("section").forEach(s => io.observe(s));
+})();
+
+/* ---------- loading screen ---------- */
+(function () {
+  const loader = document.getElementById("loader"), root = document.documentElement, t0 = performance.now();
+  let finished = false;
+  const finish = () => {
+    if (finished) return; finished = true;
+    loader.classList.add("done"); root.classList.remove("loading");
+    setTimeout(() => loader.remove(), 700);
+  };
+  const onReady = () => setTimeout(finish, Math.max(0, 2700 - (performance.now() - t0)));
+  if (document.readyState === "complete") onReady(); else window.addEventListener("load", onReady);
+  setTimeout(finish, 5000);   // กันค้าง: ถ้าโหลดนานเกินไปให้เปิดหน้าเว็บอยู่ดี
 })();
 </script>
 </body>
